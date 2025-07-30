@@ -17,12 +17,14 @@ on:
 jobs:
   sync-and-commit:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
 
     steps:
       - name: 检出代码
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: 设置 Node.js
@@ -64,7 +66,7 @@ jobs:
 
       - name: 推送代码
         if: steps.check-changes.outputs.has_changes == 'true'
-        run: git push
+        run: git push origin HEAD:${{ github.ref }}
 
       - name: 输出结果
         run: |
