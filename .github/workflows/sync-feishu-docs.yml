@@ -57,10 +57,10 @@ jobs:
       - name: 同步飞书文档
         env:
           FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
-          FEISHU_APP_ID: ${{ env.FEISHU_APP_ID }}
-          FEISHU_SPACE_ID: ${{ env.FEISHU_SPACE_ID }}
-          OUTPUT_DIR: ${{ env.OUTPUT_DIR }}
-          URL_STYLE: ${{ env.URL_STYLE }}
+          FEISHU_APP_ID: ${{ vars.FEISHU_APP_ID }}
+          FEISHU_SPACE_ID: ${{ vars.FEISHU_SPACE_ID }}
+          OUTPUT_DIR: ${{ vars.OUTPUT_DIR }}
+          URL_STYLE: ${{ vars.URL_STYLE }}
         run: |
           echo "🔄 开始同步飞书文档..."
           pnpm sync
