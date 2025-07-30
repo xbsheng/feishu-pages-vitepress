@@ -9,3 +9,25 @@ sidebar_position: 1
 
 哈哈哈哈
 
+> 123
+
+<div class="callout callout-bg-2 callout-border-2">
+<div class='callout-emoji'>📌</div>
+<p>测试高亮块</p>
+</div>
+
+```ts
+export default {
+  lang: 'en-US',
+  title: 'VitePress',
+  description: 'Vite & Vue powered static site generator.',
+
+  // 主题相关配置
+  themeConfig: {
+    logo: '/logo.svg',
+    nav: [...],
+    sidebar: { ... }
+  }
+}
+```
+

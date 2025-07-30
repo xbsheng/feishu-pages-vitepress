@@ -38,9 +38,12 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       // { text: 'Examples', link: '/markdown-examples' },
     ],
-
     sidebar: convertDocsToSidebars(docs),
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
+    search: {
+      provider: 'local',
+    },
+
+    socialLinks: [{ icon: 'github', link: 'https://github.com/xbsheng' }],
   },
 })
