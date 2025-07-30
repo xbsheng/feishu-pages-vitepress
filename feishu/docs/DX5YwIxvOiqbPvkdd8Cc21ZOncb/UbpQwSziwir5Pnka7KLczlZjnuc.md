@@ -82,7 +82,7 @@ export default config
 
 ::: code-group
 
-```text
+```js
 /**
  * @type {import('vitepress').UserConfig}
  */
@@ -93,7 +93,7 @@ const config = {
 export default config
 ```
 
-```text
+```ts
 import type { UserConfig } from 'vitepress'
 
 const config: UserConfig = {
