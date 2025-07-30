@@ -105,3 +105,31 @@ export default config
 
 :::
 
+<div class="callout callout-bg-2 callout-border-2">
+<div class='callout-emoji'>🎨</div>
+<p>qweqeqwqew</p>
+</div>
+
+---
+
+- [ ] 1
+
+- [x] 2
+
+- [ ] 3
+
+<div class="flex gap-3 columns-3" column-size="3">
+<div class="w-[33%]" width-ratio="33">
+<p>1asdsaadsdas</p>
+<p>adadasdas</p>
+</div>
+<div class="w-[33%]" width-ratio="33">
+<p>2</p>
+<p>addaad</p>
+</div>
+<div class="w-[33%]" width-ratio="33">
+<p>3</p>
+<p>1</p>
+</div>
+</div>
+
