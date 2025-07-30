@@ -15,7 +15,8 @@ function convertDocsToSidebars(docs: any) {
   for (const doc of docs) {
     let sidebar: DefaultTheme.SidebarItem = {
       text: doc.title,
-      link: doc.slug,
+      link: `/${doc.slug}`,
+      collapsed: false,
     }
     if (doc.children.length > 0) {
       sidebar.items = convertDocsToSidebars(doc.children)
@@ -30,6 +31,7 @@ function convertDocsToSidebars(docs: any) {
 export default defineConfig({
   title: 'blog',
   description: 'A VitePress Site',
+  cleanUrls: true,
   srcDir,
   srcExclude: ['SUMMARY.md'],
   themeConfig: {
