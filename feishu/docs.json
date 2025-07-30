@@ -5,13 +5,16 @@
     "node_token": "RmnxwelqyiuNN0kaDf2cOMDmnRd",
     "parent_node_token": "",
     "obj_create_time": "1753844919",
-    "obj_edit_time": "1753846127",
+    "obj_edit_time": "1753862097",
     "obj_token": "Fzrbd8zOCozNQvxOjQWcs1manCb",
     "children": [],
     "has_child": false,
-    "slug": "RmnxwelqyiuNN0kaDf2cOMDmnRd",
+    "meta": {
+      "slug": "index"
+    },
+    "slug": "index",
     "position": 0,
-    "filename": "RmnxwelqyiuNN0kaDf2cOMDmnRd.md"
+    "filename": "index.md"
   },
   {
     "depth": 0,

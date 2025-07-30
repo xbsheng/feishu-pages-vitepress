@@ -28,12 +28,10 @@ function convertDocsToSidebars(docs: any) {
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'My Awesome Project',
+  title: 'blog',
   description: 'A VitePress Site',
   srcDir,
-  rewrites: {
-    'RmnxwelqyiuNN0kaDf2cOMDmnRd.md': 'index.md',
-  },
+  srcExclude: ['SUMMARY.md'],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
