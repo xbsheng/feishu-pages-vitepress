@@ -2,3 +2,4 @@
 .vitepress/dist
 feishu/.cache
 node_modules
+.env

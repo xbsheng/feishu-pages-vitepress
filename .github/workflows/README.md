@@ -26,11 +26,11 @@
 curl -X POST \
   -H "Authorization: token YOUR_GITHUB_TOKEN" \
   -H "Accept: application/vnd.github.v3+json" \
-  https://api.github.com/repos/OWNER/REPO/actions/workflows/sync-feishu-docs.yml/dispatches \
+  https://api.github.com/repos/xbsheng/feishu-pages-vitepress/actions/workflows/sync-feishu-docs.yml/dispatches \
   -d '{
     "ref": "main",
     "inputs": {
-      "commit_message": "docs: 手动同步飞书文档"
+      "commit_message": "docs: 通过api同步飞书文档"
     }
   }'
 ```
