@@ -37,18 +37,39 @@ jobs:
         with:
           version: 9
 
+      - name: 缓存 node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: cache-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            cache-node-modules-
+
+      - name: 缓存feishu/.cache
+        uses: actions/cache@v3
+        with:
+          path: feishu/.cache
+          key: cache-feishu
+
       - name: 安装依赖
         run: pnpm install
 
       - name: 同步飞书文档
-        run: pnpm sync
+        run: |
+          echo "🔄 开始同步飞书文档..."
+          pnpm sync
+          echo "✅ 飞书文档同步完成"
 
       - name: 检查是否有变更
         id: check-changes
         run: |
+          echo "🔍 检查文件变更..."
           if [ -n "$(git status --porcelain)" ]; then
+            echo "📝 发现文件变更："
+            git status --porcelain
             echo "has_changes=true" >> $GITHUB_OUTPUT
           else
+            echo "ℹ️ 没有发现文件变更"
             echo "has_changes=false" >> $GITHUB_OUTPUT
           fi
 
