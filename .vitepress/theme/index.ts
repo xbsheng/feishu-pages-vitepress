@@ -53,6 +53,7 @@ export default {
         mapping: 'pathname',
         inputPosition: 'top',
         lang: 'zh-CN',
+        homePageShowComment: true,
       },
       {
         frontmatter,
