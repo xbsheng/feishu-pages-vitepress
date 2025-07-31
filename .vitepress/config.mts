@@ -1,4 +1,3 @@
-import fs from 'node:fs'
 import path from 'node:path'
 import { DefaultTheme, defineConfig } from 'vitepress'
 import markdownItTaskCheckbox from 'markdown-it-task-checkbox'
@@ -48,6 +47,10 @@ export default defineConfig({
         return htmlResult
       }
     },
+    image: {
+      lazyLoading: true,
+    },
+    theme: 'one-dark-pro',
   },
   vite: {
     ssr: {

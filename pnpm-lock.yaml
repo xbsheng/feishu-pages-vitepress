@@ -23,7 +23,7 @@ importers:
         version: 22.17.0
       autoprefixer:
         specifier: ^10.4.13
-        version: 10.4.13(postcss@8.4.21)
+        version: 10.4.13
       busuanzi.pure.js:
         specifier: ^1.0.3
         version: 1.0.3
@@ -44,7 +44,7 @@ importers:
         version: 1.57.1
       tailwindcss:
         specifier: ^3.2.4
-        version: 3.2.4(postcss@8.4.21)
+        version: 3.2.4
       vitepress:
         specifier: ^1.6.3
         version: 1.6.3(@algolia/client-search@5.35.0)(@types/node@22.17.0)(axios@1.11.0)(markdown-it-mathjax3@4.3.2)(postcss@8.4.21)(sass@1.57.1)(search-insights@2.17.3)(typescript@5.8.3)
@@ -718,8 +718,6 @@ packages:
     resolution: {integrity: sha512-49vKpMqcZYsJjwotvt4+h/BCjJVnhGwcLpDt5xkcaOG3eLrG/HUYLagrihYsQ+qrIBgIzX1Rw7a6L8I/ZA1Atg==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
-    peerDependencies:
-      postcss: ^8.1.0
 
   autosize@6.0.1:
     resolution: {integrity: sha512-f86EjiUKE6Xvczc4ioP1JBlWG7FKrE13qe/DxBCpe8GCipCq2nFw73aO8QEBKHfSbYGDN5eB9jXWKen7tspDqQ==}
@@ -975,8 +973,8 @@ packages:
   focus-trap@7.6.5:
     resolution: {integrity: sha512-7Ke1jyybbbPZyZXFxEftUtxFGLMpE2n6A+z//m4CRDlj0hW+o3iYSmh8nFlYMurOiJVDmJRilUQtJr08KfIxlg==}
 
-  follow-redirects@1.15.2:
-    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
+  follow-redirects@1.15.10:
+    resolution: {integrity: sha512-V7O/fFKM539IC2bweloFWuoiJ9OtI3W2uIqJPWM8IT5xxNyt73QtvVqmSpcDmk07ivmmlKB+rRY0vpQjIYNtKw==}
     engines: {node: '>=4.0'}
     peerDependencies:
       debug: '*'
@@ -984,14 +982,9 @@ packages:
       debug:
         optional: true
 
-  follow-redirects@1.15.9:
-    resolution: {integrity: sha512-gew4GsXizNgdoRyqmyfMHyAmXsZDk6mHkSxZFCzW9gwlbtOW44CDtYavM+y+72qD/Vq2l550kMF52DT8fOLJqQ==}
+  follow-redirects@1.15.2:
+    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
     engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
 
   form-data@4.0.0:
     resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
@@ -1361,14 +1354,6 @@ packages:
   postcss-load-config@3.1.4:
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
     engines: {node: '>= 10'}
-    peerDependencies:
-      postcss: '>=8.0.9'
-      ts-node: '>=9.0.0'
-    peerDependenciesMeta:
-      postcss:
-        optional: true
-      ts-node:
-        optional: true
 
   postcss-nested@6.0.0:
     resolution: {integrity: sha512-0DkamqrPcmkBDsLn+vQDIrtkSbNkv5AD/M322ySo9kqFkCIYklym2xEmWkwo+Y3/qZo34tzEPNUw4y7yMCdv5w==}
@@ -1550,8 +1535,6 @@ packages:
     resolution: {integrity: sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==}
     engines: {node: '>=12.13.0'}
     hasBin: true
-    peerDependencies:
-      postcss: ^8.0.9
 
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
@@ -1604,8 +1587,6 @@ packages:
   update-browserslist-db@1.0.10:
     resolution: {integrity: sha512-OztqDenkfFkbSG+tRxBeAnCVPckDBcvibKd35yDONx6OU8N7sqgwc7rCbkJ/WcYtVRZ4ba68d6byhC21GFh7sQ==}
     hasBin: true
-    peerDependencies:
-      browserslist: '>= 4.21.0'
 
   url-parse@1.5.10:
     resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
@@ -1990,7 +1971,6 @@ snapshots:
       ws: 8.18.3
     transitivePeerDependencies:
       - bufferutil
-      - debug
       - utf-8-validate
 
   '@lit-labs/ssr-dom-shim@1.4.0': {}
@@ -2353,14 +2333,13 @@ snapshots:
 
   asynckit@0.4.0: {}
 
-  autoprefixer@10.4.13(postcss@8.4.21):
+  autoprefixer@10.4.13:
     dependencies:
       browserslist: 4.21.5
       caniuse-lite: 1.0.30001457
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
-      postcss: 8.4.21
       postcss-value-parser: 4.2.0
 
   autosize@6.0.1: {}
@@ -2369,12 +2348,10 @@ snapshots:
     dependencies:
       follow-redirects: 1.15.2
       form-data: 4.0.0
-    transitivePeerDependencies:
-      - debug
 
   axios@1.11.0:
     dependencies:
-      follow-redirects: 1.15.9
+      follow-redirects: 1.15.10
       form-data: 4.0.4
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
@@ -2395,7 +2372,7 @@ snapshots:
       caniuse-lite: 1.0.30001457
       electron-to-chromium: 1.4.305
       node-releases: 2.0.10
-      update-browserslist-db: 1.0.10(browserslist@4.21.5)
+      update-browserslist-db: 1.0.10
 
   busuanzi.pure.js@1.0.3: {}
 
@@ -2674,9 +2651,9 @@ snapshots:
     dependencies:
       tabbable: 6.2.0
 
-  follow-redirects@1.15.2: {}
+  follow-redirects@1.15.10: {}
 
-  follow-redirects@1.15.9: {}
+  follow-redirects@1.15.2: {}
 
   form-data@4.0.0:
     dependencies:
@@ -3067,12 +3044,10 @@ snapshots:
       camelcase-css: 2.0.1
       postcss: 8.4.21
 
-  postcss-load-config@3.1.4(postcss@8.4.21):
+  postcss-load-config@3.1.4:
     dependencies:
       lilconfig: 2.0.6
       yaml: 1.10.2
-    optionalDependencies:
-      postcss: 8.4.21
 
   postcss-nested@6.0.0(postcss@8.4.21):
     dependencies:
@@ -3285,7 +3260,7 @@ snapshots:
 
   tabbable@6.2.0: {}
 
-  tailwindcss@3.2.4(postcss@8.4.21):
+  tailwindcss@3.2.4:
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
@@ -3304,14 +3279,12 @@ snapshots:
       postcss: 8.4.21
       postcss-import: 14.1.0(postcss@8.4.21)
       postcss-js: 4.0.1(postcss@8.4.21)
-      postcss-load-config: 3.1.4(postcss@8.4.21)
+      postcss-load-config: 3.1.4
       postcss-nested: 6.0.0(postcss@8.4.21)
       postcss-selector-parser: 6.0.11
       postcss-value-parser: 4.2.0
       quick-lru: 5.1.1
       resolve: 1.22.1
-    transitivePeerDependencies:
-      - ts-node
 
   to-regex-range@5.0.1:
     dependencies:
@@ -3363,9 +3336,8 @@ snapshots:
 
   universalify@0.2.0: {}
 
-  update-browserslist-db@1.0.10(browserslist@4.21.5):
+  update-browserslist-db@1.0.10:
     dependencies:
-      browserslist: 4.21.5
       escalade: 3.1.1
       picocolors: 1.0.0
 
