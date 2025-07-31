@@ -124,7 +124,7 @@ export default config
 
 - [ ] 6
 
-- [ ] 777
+- [x] 777
 
 <div class="flex gap-3 columns-3" column-size="3">
 <div class="w-[33%]" width-ratio="33">
