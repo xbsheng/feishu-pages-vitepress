@@ -1,0 +1,156 @@
+name: deploy
+
+on:
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      commit_message:
+        description: '提交信息'
+        required: false
+        default: 'docs: 同步飞书文档并部署'
+        type: string
+
+  # 定时触发（每天凌晨2点）
+  # schedule:
+  #   - cron: '0 2 * * *'
+
+jobs:
+  sync-and-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 安装 pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: 缓存 pnpm 存储
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.pnpm-store
+            node_modules
+          key: cache-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            cache-pnpm-
+
+      - name: 缓存 feishu 缓存
+        uses: actions/cache@v3
+        with:
+          path: feishu/.cache
+          key: cache-feishu-${{ hashFiles('feishu/docs.json') }}-${{ github.run_number }}
+          restore-keys: |
+            cache-feishu-${{ hashFiles('feishu/docs.json') }}-
+            cache-feishu-
+
+      - name: 安装依赖
+        run: pnpm install --frozen-lockfile
+
+      - name: 同步飞书文档
+        id: sync
+        env:
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          FEISHU_APP_ID: ${{ vars.FEISHU_APP_ID }}
+          FEISHU_SPACE_ID: ${{ vars.FEISHU_SPACE_ID }}
+          OUTPUT_DIR: ${{ vars.OUTPUT_DIR }}
+          URL_STYLE: ${{ vars.URL_STYLE }}
+        run: |
+          echo "🔄 开始同步飞书文档..."
+          if pnpm sync; then
+            echo "✅ 飞书文档同步完成"
+            echo "sync_success=true" >> $GITHUB_OUTPUT
+          else
+            echo "❌ 飞书文档同步失败"
+            echo "sync_success=false" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+      - name: 检查是否有变更
+        id: check-changes
+        if: steps.sync.outputs.sync_success == 'true'
+        run: |
+          echo "🔍 检查文件变更..."
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "📝 发现文件变更："
+            git status --porcelain
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "ℹ️ 没有发现文件变更"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 配置 Git
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: 提交变更
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          git add .
+          git commit -m "${{ github.event.inputs.commit_message || 'docs: 同步飞书文档' }}"
+
+      - name: 推送代码
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: git push origin HEAD:${{ github.ref }}
+
+      - name: 构建 VitePress 站点
+        if: steps.check-changes.outputs.has_changes == 'true'
+        run: |
+          echo "🔨 开始构建 VitePress 站点..."
+          if pnpm build; then
+            echo "✅ 构建完成"
+          else
+            echo "❌ 构建失败"
+            exit 1
+          fi
+
+      - name: 设置 Pages
+        if: steps.check-changes.outputs.has_changes == 'true'
+        uses: actions/configure-pages@v4
+
+      - name: 上传构建产物
+        if: steps.check-changes.outputs.has_changes == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .vitepress/dist
+
+      - name: 部署到 GitHub Pages
+        if: steps.check-changes.outputs.has_changes == 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: 输出结果
+        run: |
+          if [ "${{ steps.sync.outputs.sync_success }}" == "true" ]; then
+            if [ "${{ steps.check-changes.outputs.has_changes }}" == "true" ]; then
+              echo "✅ 文档同步完成并已提交"
+              echo "🚀 部署工作已完成"
+              echo "🌐 访问地址: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+            else
+              echo "ℹ️ 没有新的文档变更"
+            fi
+          else
+            echo "❌ 文档同步失败，请检查配置"
+          fi
+
+      - name: 通知失败
+        if: failure()
+        run: |
+          echo "❌ 工作流程执行失败"
