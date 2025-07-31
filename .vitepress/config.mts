@@ -40,6 +40,16 @@ export default defineConfig({
       md.use(markdownItTaskCheckbox)
     },
   },
+  vite: {
+    ssr: {
+      noExternal: ['vitepress-theme-website'],
+    },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, '../feishu/docs'),
+      },
+    },
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
