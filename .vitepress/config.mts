@@ -66,7 +66,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      // { text: 'Examples', link: '/markdown-examples' },
+      { text: '网站导航', link: '/nav' },
     ],
     sidebar: convertDocsToSidebars(docs),
 

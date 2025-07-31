@@ -10,6 +10,7 @@ import '@bprogress/core/css'
 import { BProgress } from '@bprogress/core'
 import ArticleMetadata from './components/ArticleMetadata.vue'
 import Layout from './components/Layout.vue'
+import NavLink from './components/nav/Nav.vue'
 
 export default {
   extends: DefaultTheme,
@@ -19,6 +20,7 @@ export default {
   enhanceApp({ app, router }) {
     // 注册全局组件
     app.component('ArticleMetadata', ArticleMetadata)
+    app.component('NavLink', NavLink)
 
     if (inBrowser) {
       router.onBeforeRouteChange = () => {
