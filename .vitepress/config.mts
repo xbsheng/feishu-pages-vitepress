@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { DefaultTheme, defineConfig } from 'vitepress'
+import markdownItTaskCheckbox from 'markdown-it-task-checkbox'
 import docs from '../feishu/docs.json'
 
 const srcDir = path.resolve(__dirname, '../feishu/docs')
@@ -34,6 +35,11 @@ export default defineConfig({
   cleanUrls: true,
   srcDir,
   srcExclude: ['SUMMARY.md'],
+  markdown: {
+    config: md => {
+      md.use(markdownItTaskCheckbox)
+    },
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [

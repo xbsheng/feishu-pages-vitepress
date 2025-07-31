@@ -1,0 +1,68 @@
+/* checkbox 颜色设置 */
+li.task-list-item {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  list-style: inherit;
+}
+
+/* Target the last child element to push it to the next line */
+li.task-list-item ul:last-child {
+  flex-basis: 100%;
+  margin-right: 0;
+}
+
+li.task-list-item input[type='checkbox'] {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  margin-right: 8px;
+  border: none;
+  background: transparent;
+
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+}
+
+li.task-list-item input[type='checkbox']:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* color: #666; */
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+  content: '⬜';
+  font-size: 14px;
+  line-height: 1;
+}
+
+li.task-list-item input[type='checkbox']:checked {
+  background-color: transparent;
+}
+
+li.task-list-item input[type='checkbox']:checked::after {
+  content: '✅';
+  /* color: #28a745; */
+  font-size: 14px;
+  line-height: 1;
+}
+
+.timeline-dot {
+  color: #7f8c8d;
+}
+
+.task-list {
+  margin: 0 !important;
+}
+
+li.task-list-item p {
+  display: flex;
+  margin: 0;
+  align-items: center;
+}

@@ -1,0 +1,19 @@
+.medium-zoom-overlay {
+  z-index: 30;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.3s ease;
+}
+
+.medium-zoom-image {
+  z-index: 9999 !important;
+  border-radius: 8px;
+  /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); */
+  transition: all 0.3s ease;
+}
+
+.medium-zoom-image:hover {
+  transform: scale(1.02);
+  /* box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05); */
+}
