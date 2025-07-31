@@ -5,25 +5,28 @@ import { inBrowser, useData, useRoute } from 'vitepress'
 import { onMounted, watch, nextTick } from 'vue'
 import { useLive2d } from 'vitepress-theme-website'
 import giscusTalk from 'vitepress-plugin-comment-with-giscus'
-
-// import busuanzi from 'busuanzi.pure.js'
-
+import busuanzi from 'busuanzi.pure.js'
 import '@bprogress/core/css'
 import { BProgress } from '@bprogress/core'
+import ArticleMetadata from './components/ArticleMetadata.vue'
+import Layout from './components/Layout.vue'
 
 export default {
   extends: DefaultTheme,
 
-  enhanceApp({ app, router }) {
-    if (inBrowser) {
-      // BProgress.configure({ showSpinner: true })
+  Layout,
 
+  enhanceApp({ app, router }) {
+    // 注册全局组件
+    app.component('ArticleMetadata', ArticleMetadata)
+
+    if (inBrowser) {
       router.onBeforeRouteChange = () => {
         BProgress.start()
       }
       router.onAfterRouteChanged = () => {
         BProgress.done()
-        // busuanzi.fetch()
+        busuanzi.fetch()
       }
     }
   },

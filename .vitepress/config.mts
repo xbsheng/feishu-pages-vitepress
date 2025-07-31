@@ -36,9 +36,17 @@ export default defineConfig({
   base: process.env.VITEPRESS_BASE,
   srcDir,
   srcExclude: ['SUMMARY.md'],
+  sitemap: {
+    hostname: 'https://blog.quarkcode.cn',
+  },
   markdown: {
     config: md => {
       md.use(markdownItTaskCheckbox)
+      md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
+        let htmlResult = slf.renderToken(tokens, idx, options)
+        // if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`
+        return htmlResult
+      }
     },
   },
   vite: {
@@ -61,6 +69,24 @@ export default defineConfig({
 
     search: {
       provider: 'local',
+    },
+
+    outline: {
+      level: 'deep',
+    },
+
+    editLink: {
+      pattern: 'https://github.com/xbsheng/feishu-pages-vitepress/blob/main/feishu/docs/:path',
+      text: '为此页提供修改建议',
+    },
+
+    //上次更新时间
+    lastUpdated: {
+      text: '最后更新于',
+      formatOptions: {
+        dateStyle: 'short',
+        timeStyle: 'medium',
+      },
     },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/xbsheng' }],
