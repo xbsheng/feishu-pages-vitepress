@@ -148,3 +148,20 @@ flowchart LR
   Start --> Stop
 ```
 
+```ts
+enhanceApp({ app, router }) {
+// 注册全局组件
+app.component('ArticleMetadata', ArticleMetadata)
+
+if (inBrowser) {
+  router.onBeforeRouteChange = () => {
+    BProgress.start()
+  }
+  router.onAfterRouteChanged = () => {
+    BProgress.done()
+    busuanzi.fetch()
+  }
+}
+},
+```
+
