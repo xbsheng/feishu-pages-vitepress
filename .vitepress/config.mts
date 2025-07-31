@@ -33,6 +33,7 @@ export default defineConfig({
   title: 'blog',
   description: 'A VitePress Site',
   cleanUrls: true,
+  base: process.env.VITEPRESS_BASE,
   srcDir,
   srcExclude: ['SUMMARY.md'],
   markdown: {

@@ -112,8 +112,11 @@ jobs:
 
       - name: 构建 VitePress 站点
         if: steps.check-changes.outputs.has_changes == 'true'
+        env:
+          VITEPRESS_BASE: ${{ vars.VITEPRESS_BASE }}
         run: |
           echo "🔨 开始构建 VitePress 站点..."
+          echo "📝 使用 base: $VITEPRESS_BASE"
           if pnpm build; then
             echo "✅ 构建完成"
           else
