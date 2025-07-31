@@ -1,9 +1,11 @@
 import DefaultTheme from 'vitepress/theme'
 import mediumZoom from 'medium-zoom'
 import './style/index.scss'
-import { inBrowser, useRoute } from 'vitepress'
+import { inBrowser, useData, useRoute } from 'vitepress'
 import { onMounted, watch, nextTick } from 'vue'
 import { useLive2d } from 'vitepress-theme-website'
+import giscusTalk from 'vitepress-plugin-comment-with-giscus'
+
 // import busuanzi from 'busuanzi.pure.js'
 
 import '@bprogress/core/css'
@@ -28,6 +30,7 @@ export default {
 
   setup() {
     const route = useRoute()
+    const { frontmatter } = useData()
     const initZoom = () => {
       // mediumZoom('[data-zoomable]', { background: 'var(--vp-c-bg)' }); // 默认
       mediumZoom('.main img', { background: 'var(--vp-c-bg)' }) // 不显式添加{data-zoomable}的情况下为所有图像启用此功能
@@ -38,6 +41,24 @@ export default {
     watch(
       () => route.path,
       () => nextTick(() => initZoom()),
+    )
+
+    // giscus
+    giscusTalk(
+      {
+        repo: 'xbsheng/feishu-pages-vitepress',
+        repoId: 'R_kgDOPVNRvw',
+        category: 'General',
+        categoryId: 'DIC_kwDOPVNRv84Ctn0j',
+        mapping: 'pathname',
+        inputPosition: 'top',
+        lang: 'zh-CN',
+      },
+      {
+        frontmatter,
+        route,
+      },
+      true,
     )
 
     //看板娘
