@@ -11,6 +11,7 @@ import { BProgress } from '@bprogress/core'
 import ArticleMetadata from './components/ArticleMetadata.vue'
 import Layout from './components/Layout.vue'
 import NavLink from './components/nav/Nav.vue'
+import { Theme } from 'vitepress'
 
 export default {
   extends: DefaultTheme,
@@ -26,7 +27,7 @@ export default {
       router.onBeforeRouteChange = () => {
         BProgress.start()
       }
-      router.onAfterRouteChanged = () => {
+      router.onAfterRouteChange = () => {
         BProgress.done()
         busuanzi.fetch()
       }
@@ -88,4 +89,4 @@ export default {
       },
     })
   },
-}
+} satisfies Theme
