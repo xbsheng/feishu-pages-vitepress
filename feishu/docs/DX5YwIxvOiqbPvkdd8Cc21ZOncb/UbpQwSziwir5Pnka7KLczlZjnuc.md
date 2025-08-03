@@ -151,7 +151,7 @@ flowchart LR
 ```ts
 enhanceApp({ app, router }) {
 // 注册全局组件
-// app.component('ArticleMetadata', ArticleMetadata)
+app.component('ArticleMetadata', ArticleMetadata)
 
 if (inBrowser) {
   router.onBeforeRouteChange = () => {
