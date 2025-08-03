@@ -123,7 +123,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style>
+<style scoped>
 .container {
   color: var(--vp-c-text-2);
   font-size: 14px;
