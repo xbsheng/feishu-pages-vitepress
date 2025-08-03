@@ -2,3 +2,5 @@
 - [第一篇测试文档111](DX5YwIxvOiqbPvkdd8Cc21ZOncb.md)
   - [这是子文档1](DX5YwIxvOiqbPvkdd8Cc21ZOncb/UbpQwSziwir5Pnka7KLczlZjnuc.md)
   - [这是子文档2](DX5YwIxvOiqbPvkdd8Cc21ZOncb/PizCwkuYTi2xglkwZB9c9Rk2nvg.md)
+- [计算机基础](KsR3w3ygYisE2ik3SiRcKif1ncf.md)
+  - [计算机组成原理](KsR3w3ygYisE2ik3SiRcKif1ncf/Km1jwdG8YiwDKAkCvXxcAt7inQh.md)
