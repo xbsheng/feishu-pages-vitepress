@@ -13,8 +13,6 @@ sidebar_position: 3
 
 <img src="/assets/FBE5bKHOFoJpV5xavCdcBa8znxc.png" src-width="1142" src-height="423" align="center"/>
 
----
-
 ## <b>⭐️ 在浏览器里，从输入 URL 到页面展示，这中间发生了什么？</b>
 
 1. 首先，浏览器进程接收到用户输入的 URL 请求，浏览器进程便将该 URL 转发给<b>网络进程</b>。
@@ -26,8 +24,6 @@ sidebar_position: 3
 7. 浏览器进程接收到渲染进程“提交文档”的消息之后，便开始移除之前旧的文档，然后<b>更新</b>浏览器进程中的页面状态。
 
 <img src="/assets/CWWybq6GBoe4dkxa8t5cMgZvned.png" src-width="1142" src-height="478" align="center"/>
-
----
 
 ## 浏览器的渲染流程
 
@@ -41,6 +37,4 @@ sidebar_position: 3
 8. 浏览器进程根据DrawQuad消息<b>生成页面</b>，并<b>显示</b>到显示器上。
 
 <img src="/assets/M5m2bEvpeo6p8CxtGxDch8s3nrh.png" src-width="1142" src-height="745" align="center"/>
-
----
 
