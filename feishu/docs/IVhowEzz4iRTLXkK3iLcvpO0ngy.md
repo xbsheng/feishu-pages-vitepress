@@ -1,7 +1,7 @@
 ---
 title: 浏览器原理
 slug: IVhowEzz4iRTLXkK3iLcvpO0ngy
-sidebar_position: 3
+sidebar_position: 0
 ---
 
 
@@ -37,4 +37,24 @@ sidebar_position: 3
 8. 浏览器进程根据DrawQuad消息<b>生成页面</b>，并<b>显示</b>到显示器上。
 
 <img src="/assets/M5m2bEvpeo6p8CxtGxDch8s3nrh.png" src-width="1142" src-height="745" align="center"/>
+
+## 重排、重绘、合成
+
+- 重排：更新元素的几何属性
+
+重排需要更新完整的渲染流水线，所以<b>开销也是最大的</b>
+
+<img src="/assets/Y060bglcLoKAxAxnQkTcX4EnnKg.png" src-width="1142" src-height="318" align="center"/>
+
+- 重绘：更新元素的绘制属性
+
+重绘省去了布局和分层阶段，所以<b>执行效率会比重排操作要高一些</b>
+
+<img src="/assets/QFC4b18cYoHSmZx97fkcdUSenOe.png" src-width="1142" src-height="286" align="center"/>
+
+- 合成：更改一个既不要布局也不要绘制的属性
+
+使用CSS的transform来实现动画效果，这可以避开重排和重绘阶段，直接<b>在非主线程上执行合成动画操作</b>。这样的效率是最高的，因为是在非主线程上合成，并没有占用主线程的资源，另外也避开了布局和绘制两个子阶段，所以相对于重绘和重排，<b>合成能大大提升绘制效率</b>
+
+<img src="/assets/CNltbrSOToFA3yx9rhCcflutnKe.png" src-width="1142" src-height="270" align="center"/>
 
