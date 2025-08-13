@@ -38,6 +38,20 @@ export default defineConfig({
   sitemap: {
     hostname: 'https://blog.quarkcode.cn',
   },
+  head: [
+    [
+      'script',
+      {},
+      `var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2cde7fb3fb56f53f18454b488082224e";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+      `,
+    ],
+  ],
   markdown: {
     config: md => {
       md.use(markdownItTaskCheckbox)
