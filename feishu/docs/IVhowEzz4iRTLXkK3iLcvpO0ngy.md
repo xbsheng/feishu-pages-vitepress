@@ -58,3 +58,22 @@ sidebar_position: 0
 
 <img src="/assets/CNltbrSOToFA3yx9rhCcflutnKe.png" src-width="1142" src-height="270" align="center"/>
 
+## 同名函数、变量处理原则
+
+- 如果是同名的函数，JavaScript编译阶段会选择最后声明的那个
+- 如果变量和函数同名，那么在编译阶段，变量的声明会被忽略
+
+```js
+showName() // 1
+
+function showName() {
+  console.log(1)
+}
+
+var showName = function () {
+  console.log(2)
+}
+
+showName() // 2
+```
+
