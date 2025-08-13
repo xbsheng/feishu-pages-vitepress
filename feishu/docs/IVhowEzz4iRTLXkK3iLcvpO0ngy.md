@@ -90,9 +90,9 @@ showName() // 2
 <tr><th></th><th><p>function</p></th><th><p>var</p></th><th><p>let/const</p></th></tr>
 </thead>
 <tbody>
-<tr><td><p>创建提升</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td></tr>
-<tr><td><p>初始化提升</p></td><td><p>✅</p></td><td><p>✅ undefined</p></td><td><p>❌</p></td></tr>
-<tr><td><p>赋值提升</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td></tr>
+<tr><td><p><b>创建</b>提升</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td></tr>
+<tr><td><p><b>初始化</b>提升</p></td><td><p>✅</p></td><td><p>✅ undefined</p></td><td><p>❌</p></td></tr>
+<tr><td><p><b>赋值</b>提升</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td></tr>
 </tbody>
 </table>
 
