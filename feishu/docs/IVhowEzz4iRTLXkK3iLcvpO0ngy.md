@@ -77,3 +77,33 @@ var showName = function () {
 showName() // 2
 ```
 
+## 变量提升
+
+<table header_row="1">
+<colgroup>
+<col width="198"/>
+<col width="198"/>
+<col width="198"/>
+<col width="198"/>
+</colgroup>
+<thead>
+<tr><th></th><th><p>function</p></th><th><p>var</p></th><th><p>let/const</p></th></tr>
+</thead>
+<tbody>
+<tr><td><p>创建提升</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td></tr>
+<tr><td><p>初始化提升</p></td><td><p>✅</p></td><td><p>✅ undefined</p></td><td><p>❌</p></td></tr>
+<tr><td><p>赋值提升</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td></tr>
+</tbody>
+</table>
+
+```js
+console.log(fn) // [Function: fn]
+function fn() {}
+
+console.log(a) // undefined
+var a = 1
+
+console.log(b) // ReferenceError: Cannot access 'b' before initialization
+let b = 2
+```
+
