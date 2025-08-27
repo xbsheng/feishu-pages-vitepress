@@ -2,7 +2,7 @@
 - [前端](Iay7wNcAJi4iPrkD7oHc1vzNnwb.md)
   - [浏览器原理](IVhowEzz4iRTLXkK3iLcvpO0ngy.md)
 - [网络协议](UN5SwUp8MiEtQ6klTZucJ2X1nTf.md)
-  - [HTTP协议的线头阻塞（Head-of-Line Blocking, HOLB）](ECKZwqT4linoOck9H8dc37BZnAf.md)
+  - [HTTP协议的队头阻塞](ECKZwqT4linoOck9H8dc37BZnAf.md)
 - [计算机基础](KsR3w3ygYisE2ik3SiRcKif1ncf.md)
   - [计算机组成原理](Km1jwdG8YiwDKAkCvXxcAt7inQh.md)
 - [第一篇测试文档111](DX5YwIxvOiqbPvkdd8Cc21ZOncb.md)
